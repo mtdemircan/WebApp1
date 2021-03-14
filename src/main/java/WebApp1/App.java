@@ -18,6 +18,8 @@ import spark.template.mustache.MustacheTemplateEngine;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static spark.Spark.port;
+
 
 public class App {
     public String getGreeting() {
@@ -31,6 +33,11 @@ public class App {
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
+
+        int port = Integer.parseInt(System.getenv("PORT"));
+        port(port);
+        logger.error("Current port number:" + port);
+
 
         get("/", (req, res) -> "Hello, World");
 
