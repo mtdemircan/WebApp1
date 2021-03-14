@@ -1,0 +1,1 @@
+multiply inputs and return true if it is in arraylist.
